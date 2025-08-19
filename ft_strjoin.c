@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
 static char	*fill(char const *s1, char const *s2, char *newstring)
 {
@@ -47,6 +48,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
+	if (len1 > SIZE_MAX - len2 - 1)
+		return (NULL);
 	newstring = (char *)malloc(len1 + len2 + 1);
 	if (!newstring)
 		return (NULL);
