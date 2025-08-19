@@ -12,14 +12,14 @@
 #include "libft.h"
 #include <limits.h>
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_calloc(size_t nelem, size_t elsize)
 {
 	void	*ptr;
 	size_t	total;
 
-	if (size && count > SIZE_MAX / size)
+	if (elsize && nelem > SIZE_MAX / elsize)
 		return (NULL);
-	total = count * size;
+	total = nelem * elsize;
 	ptr = malloc(total);
 	if (!ptr)
 		return (NULL);
