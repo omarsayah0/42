@@ -28,6 +28,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*substring;
 	size_t	i;
 	size_t	slen;
+	size_t	rlen;
 
 	if (!s)
 		return (NULL);
@@ -37,6 +38,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	if (start >= slen)
 		return (alloc_empty());
+	rlen = slen - start;
+	if (len > rlen)
+		len = rlen;
 	substring = (char *)malloc(len + 1);
 	if (!substring)
 		return (NULL);
